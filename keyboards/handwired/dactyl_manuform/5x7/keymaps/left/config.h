@@ -1,6 +1,5 @@
 /*
 Copyright 2012 Jun Wako <wakojun@gmail.com>
-Copyright 2015 Jack Humbert
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -18,24 +17,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #pragma once
 
-#include "config_common.h"
+// I2C communication
+#define USE_I2C
 
-#define PRODUCT_ID 0x3537
-#define DEVICE_VER 0x0001
-#define PRODUCT    Dactyl-Manuform (5x7)
-
-/* key matrix size */
-// Rows are doubled-up
-#define MATRIX_ROWS 12
-#define MATRIX_COLS 7
-
-// wiring of each half
-#define MATRIX_ROW_PINS { F0, F1, F4, F5, F6, F7 }
-#define MATRIX_COL_PINS { B7, D2, D5, D6, D7, B5, C7 }
-
-#define DIODE_DIRECTION COL2ROW
-
-// // WS2812 RGB LED strip input and number of LEDs
-// #define RGB_DI_PIN D3
-// #define RGBLED_NUM 12
-
+#define MASTER_LEFT
