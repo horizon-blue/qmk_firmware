@@ -19,7 +19,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         // left hand
         KC_ESC,    KC_1,    KC_2,    KC_3,   KC_4,   KC_5,   KC_6,
         KC_TAB,    KC_Q,    KC_W,    KC_E,   KC_R,   KC_T,   KC_LBRC,
-        KC_LCTL,   KC_A,    KC_S,    KC_D,   KC_F,   KC_G,   TAB_RO,
+        KC_LCTL,   KC_A,    KC_S,    KC_D,   KC_F,   KC_G,   QK_BOOTLOADER,
         KC_LSFT,   KC_Z,    KC_X,    KC_C,   KC_V,   KC_B,
         KC_CAPS,   KC_LGUI, TAB_L,   TAB_R,
                                     KC_LALT, KC_SPC,
@@ -28,10 +28,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         // right hand
                           KC_7,    KC_8,    KC_9,    KC_0,     KC_MINS,  KC_EQL,   KC_BSPC,
                           KC_RBRC, KC_Y,    KC_U,    KC_I,     KC_O,     KC_P,     KC_BSLS,
-                      TG(_NUMPAD), KC_H,    KC_J,    KC_K,     KC_L,     KC_SCLN,  KC_QUOT,
-                                   KC_N,    KC_M,    KC_COMM,  KC_DOT,   KC_SLSH,  OSM(MOD_RSFT),
-                                            QK_BOOTLOADER, KC_UP,    KC_DOWN,  KC_RGHT,
-                QK_BOOTLOADER,
+                    QK_BOOTLOADER, KC_H,    KC_J,    KC_K,     KC_L,     KC_SCLN,  KC_QUOT,
+                                   KC_N,    KC_M,    KC_COMM,  KC_DOT,   KC_UP,  OSM(MOD_RSFT),
+                                            KC_SLSH, KC_LEFT,    KC_DOWN,  KC_RGHT,
+                KC_ENTER,
                 TT(_FN),
         KC_PGUP, KC_PGDN
     ),
