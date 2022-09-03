@@ -26,14 +26,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                     KC_LGUI, KC_HOME,
                                     TT(_FN), KC_END,
         // right hand
-                          KC_7,    KC_8,    KC_9,    KC_0,     KC_MINS,  KC_EQL,   KC_GRV,
+                          KC_7,    KC_8,    KC_9,    KC_0,     KC_MINS,  KC_EQL,   KC_BSPC,
                           KC_RBRC, KC_Y,    KC_U,    KC_I,     KC_O,     KC_P,     KC_BSLS,
                       TG(_NUMPAD), KC_H,    KC_J,    KC_K,     KC_L,     KC_SCLN,  KC_QUOT,
                                    KC_N,    KC_M,    KC_COMM,  KC_DOT,   KC_SLSH,  OSM(MOD_RSFT),
-                                            KC_LEFT, KC_UP,    KC_DOWN,  KC_RGHT,
-             KC_BSPC, KC_ENT,
-             KC_PGUP, KC_PGDN,
-             KC_LCTL, TT(_FN)
+                                            QK_BOOTLOADER, KC_UP,    KC_DOWN,  KC_RGHT,
+                QK_BOOTLOADER,
+                TT(_FN),
+        KC_PGUP, KC_PGDN
     ),
 
     [_FN] = LAYOUT_5x7(
@@ -52,9 +52,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                           _______,   _______,   _______,   _______,   _______,   _______,   _______,
                                      _______,   _______,   _______,   _______,   _______,   _______,
                                                            _______,   _______,   _______,   _______,
-             KC_DEL, _______,
-             _______, _______,
-             _______, _______
+                      _______,
+                      _______,
+        _______, _______
     ),
 
     [_NUMPAD] = LAYOUT_5x7(
@@ -73,8 +73,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                           _______,   _______,   KC_P4,     KC_P5,     KC_P6,     KC_PAST,   _______,
                                      _______,   KC_P1,     KC_P2,     KC_P3,     KC_PSLS,   _______,
                                                            KC_P0,     KC_PDOT,   _______,   _______,
-             _______, KC_PENT,
-             _______, _______,
-             _______, _______
+                      _______,
+                      _______,
+        _______, _______
     ),
 };
