@@ -41,3 +41,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 // I2C communication
 #define USE_I2C
+
+#define SPLIT_USB_DETECT
+#define SPLIT_USB_TIMEOUT 2500
