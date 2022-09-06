@@ -5,7 +5,8 @@
 
 #define _QWERTY 0
 #define _FN     1
-#define _NUMPAD 2
+#define _MOUSE  2
+#define _NUMPAD 3
 
 // Some basic macros
 #define TASK   LCTL(LSFT(KC_ESC))
@@ -22,18 +23,18 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         // left hand
         KC_ESC,    KC_1,    KC_2,    KC_3,   KC_4,   KC_5,   KC_6,
         KC_TAB,    KC_Q,    KC_W,    KC_E,   KC_R,   KC_T,   KC_LBRC,
-        KC_LCTL,   KC_A,    KC_S,    KC_D,   KC_F,   KC_G,   DRAG_SCROLL,
+        KC_LCTL,   KC_A,    KC_S,    KC_D,   KC_F,   KC_G,   MO(_MOUSE),
         KC_LSFT,   KC_Z,    KC_X,    KC_C,   KC_V,   KC_B,
         KC_CAPS,   KC_LALT, KC_PGUP, KC_PGDN,
                                     KC_LGUI, KC_SPC,
                                     KC_DEL,  KC_HOME,
                                     TT(_FN), KC_END,
         // right hand
-                          KC_7,     KC_8,    KC_9,    KC_0,     KC_MINS,  KC_EQL,   KC_BSPC,
-                          KC_RBRC,  KC_Y,    KC_U,    KC_I,     KC_O,     KC_P,     KC_BSLS,
-                          KC_BTN1,  KC_H,    KC_J,    KC_K,     KC_L,     KC_SCLN,  KC_QUOT,
-                                    KC_N,    KC_M,    KC_COMM,  KC_DOT,   KC_UP,  TT(_FN),
-                                            KC_SLSH, KC_LEFT,    KC_DOWN,  KC_RGHT,
+                          KC_7,       KC_8,    KC_9,    KC_0,     KC_MINS,  KC_EQL,   KC_BSPC,
+                          KC_RBRC,    KC_Y,    KC_U,    KC_I,     KC_O,     KC_P,     KC_BSLS,
+                          TG(_MOUSE), KC_H,    KC_J,    KC_K,     KC_L,     KC_SCLN,  KC_QUOT,
+                                      KC_N,    KC_M,    KC_COMM,  KC_DOT,   KC_UP,  TT(_FN),
+                                               KC_SLSH, KC_LEFT,    KC_DOWN,  KC_RGHT,
                 KC_ENTER,
                 KC_SPC,
         KC_PGUP, KC_PGDN
@@ -43,7 +44,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         // left hand
         _______,   KC_F1,     KC_F2,      KC_F3,    KC_F4,     KC_F5,    KC_F6,
         _______,   _______,   _______,    KC_UP,    _______,   _______,  _______,
-        _______,   _______,   KC_LEFT,    KC_DOWN,  KC_RGHT,   _______,  QK_BOOT,
+        KC_VOLD,   KC_VOLU,   KC_LEFT,    KC_DOWN,  KC_RGHT,   _______,  QK_BOOT,
         _______,   _______,   _______,   _______,   _______,   _______,
         KC_MSTP,   KC_MPLY,   KC_MPRV,   KC_MNXT,
                                     _______, _______,
@@ -58,6 +59,27 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                       _______,
                       _______,
         _______, _______
+    ),
+
+    [_MOUSE] = LAYOUT_5x7(
+        // left hand
+        _______,   _______,   _______,   _______,   _______,   _______,  _______,
+        _______,   _______,   _______,   _______,   _______,   _______,  _______,
+        _______,   _______,   _______,   _______,   _______,   _______,  _______,
+        _______,   _______,   _______,   _______,   _______,   _______,
+        _______,   _______,   _______,   _______,
+                                    _______, _______,
+                                    _______, _______,
+                                    _______, _______,
+        // right hand  
+                          _______,  _______,   _______,   _______,   _______,   _______,  _______,
+                          _______,  _______,   _______,   _______,   _______,   _______,  _______,
+                          _______,  KC_BTN1,   KC_BTN2, DRAG_SCROLL, _______,   _______,  _______,
+                                    _______,   _______,   _______,   _______,   _______,  _______,
+                                                           _______,   _______,   _______,   _______,
+                      _______,
+                      _______,
+        KC_WBAK,   KC_WFWD
     ),
 
     [_NUMPAD] = LAYOUT_5x7(
@@ -87,7 +109,7 @@ bool set_scrolling = false;
 report_mouse_t pointing_device_task_user(report_mouse_t mouse_report) {
     if (set_scrolling) {
         mouse_report.h = mouse_report.x;
-        mouse_report.v = mouse_report.y;
+        mouse_report.v = -mouse_report.y;
         mouse_report.x = 0;
         mouse_report.y = 0;
     }
@@ -95,9 +117,17 @@ report_mouse_t pointing_device_task_user(report_mouse_t mouse_report) {
 }
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-    if (keycode == DRAG_SCROLL && record->event.pressed) {
-        set_scrolling = !set_scrolling;
-        pointing_device_set_cpi(set_scrolling ? 1000:8000);
-    }
-    return true;
+    switch (keycode) {
+    case DRAG_SCROLL:
+        if (record->event.pressed) {
+            set_scrolling = true;
+            pointing_device_set_cpi(100);
+        } else {
+            set_scrolling = false;
+            pointing_device_set_cpi(4000);
+        }
+        return false; // Skip all further processing of this key
+    default:
+        return true; // Process all other keycodes normally
+  }
 }
