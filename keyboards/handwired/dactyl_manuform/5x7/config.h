@@ -30,17 +30,28 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define MATRIX_COLS 7
 
 // wiring of each half
-#define MATRIX_ROW_PINS { F0, F1, F4, F5, F6, F7 }
+#define MATRIX_ROW_PINS { F0, F1, F4, F5, F6, F7 } 
 #define MATRIX_COL_PINS { B7, D2, D5, D6, D7, B5, C7 }
 
 #define DIODE_DIRECTION COL2ROW
 
-// // WS2812 RGB LED strip input and number of LEDs
-// #define RGB_DI_PIN C6
-// #define RGBLED_NUM 1
+// WS2812 RGB LED strip input and number of LEDs
+#define RGB_DI_PIN C6
+#define DRIVER_LED_TOTAL 38
 
 // I2C communication
 #define USE_I2C
 
 #define SPLIT_USB_DETECT
 #define SPLIT_USB_TIMEOUT 2500
+
+// additional RGB config
+#define RGBLIGHT_SPLIT  // synchronization functionality for split keyboards
+#define RGB_MATRIX_STARTUP_HUE 170
+#define SPLIT_LAYER_STATE_ENABLE
+#define RGB_MATRIX_SPLIT {38, 0}
+#define SPLIT_TRANSPORT_MIRROR
+
+#define RGB_MATRIX_KEYPRESSES 
+#define ENABLE_RGB_MATRIX_SOLID_REACTIVE_MULTINEXUS
+#define ENABLE_RGB_MATRIX_RAINBOW_MOVING_CHEVRON
