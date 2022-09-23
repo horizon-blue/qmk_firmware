@@ -35,21 +35,23 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #define DIODE_DIRECTION COL2ROW
 
-// WS2812 RGB LED strip input and number of LEDs
-#define RGB_DI_PIN C6
-#define DRIVER_LED_TOTAL 38
-
 // I2C communication
 #define USE_I2C
 
 #define SPLIT_USB_DETECT
 #define SPLIT_USB_TIMEOUT 2500
 
-// additional RGB config
+// additional RGB Matrix config (WS2812)
+// The pin connected to the data pin of the LEDs
+#define RGB_DI_PIN C6
+// The number of LEDs connected
+#define DRIVER_LED_TOTAL 76
+// WS2812 RGB LED strip input and number of LEDs
+
 #define RGBLIGHT_SPLIT  // synchronization functionality for split keyboards
 #define RGB_MATRIX_STARTUP_HUE 170
 #define SPLIT_LAYER_STATE_ENABLE
-#define RGB_MATRIX_SPLIT {38, 0}
+#define RGB_MATRIX_SPLIT {38, 38}
 #define SPLIT_TRANSPORT_MIRROR
 
 #define RGB_MATRIX_KEYPRESSES 
