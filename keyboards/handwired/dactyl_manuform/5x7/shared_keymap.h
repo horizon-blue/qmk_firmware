@@ -10,7 +10,7 @@
 // Some basic macros
 #define TASK   LCTL(LSFT(KC_ESC))
 #define TAB_R  LCTL(KC_TAB)
-#define TAB_L  LCTL(LSFT(KC_TAB)) 
+#define TAB_L  LCTL(LSFT(KC_TAB))
 #define TAB_RO LCTL(LSFT(KC_T))
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -20,9 +20,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_TAB,    KC_Q,    KC_W,    KC_E,   KC_R,   KC_T,   KC_LBRC,
         KC_LCTL,   KC_A,    KC_S,    KC_D,   KC_F,   KC_G,   KC_GRV,
         KC_LSFT,   KC_Z,    KC_X,    KC_C,   KC_V,   KC_B,
-        TT(_FN),   KC_LALT, KC_PGUP, KC_PGDN,
+        TT(_FN),   KC_CAPS, KC_PGUP, KC_PGDN,
                                     KC_LGUI, KC_SPC, KC_DEL,
-                                    TT(_FN), KC_HOME,KC_END,
+                                    KC_LALT, KC_HOME,KC_END,
         // right hand
                           KC_7,       KC_8,    KC_9,    KC_0,     KC_MINS,  KC_EQL,   KC_BSPC,
                           KC_RBRC,    KC_Y,    KC_U,    KC_I,     KC_O,     KC_P,     KC_BSLS,

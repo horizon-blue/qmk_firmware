@@ -32,7 +32,7 @@
         "files.trimTrailingWhitespace": false
     },
     "python.formatting.provider": "yapf",
-    "[json]": {
+    "[json][jsonc][c]": {
         "editor.formatOnSave": false
     },
     "clangd.arguments": ["--header-insertion=never"],
