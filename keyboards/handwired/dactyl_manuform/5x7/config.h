@@ -18,29 +18,14 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #pragma once
 
-#include "config_common.h"
-
-/* key matrix size */
-// Rows are doubled-up
-#define MATRIX_ROWS 12
-#define MATRIX_COLS 7
-
-// I2C communication
-#define USE_I2C
-
+// Split keyboard settings
 #define SPLIT_USB_DETECT
 #define SPLIT_USB_TIMEOUT 2500
-
-// The pin connected to the data pin of the LEDs
-#define DRIVER_LED_TOTAL 76
-// WS2812 RGB LED strip input and number of LEDs
-
-#define RGBLIGHT_SPLIT  // synchronization functionality for split keyboards
-#define RGB_MATRIX_STARTUP_HUE 170
 #define SPLIT_LAYER_STATE_ENABLE
-#define RGB_MATRIX_SPLIT {38, 38}
 #define SPLIT_TRANSPORT_MIRROR
 
-#define RGB_MATRIX_KEYPRESSES 
+// RGB Matrix settings
+#define RGB_MATRIX_KEYPRESSES
+#define RGB_MATRIX_STARTUP_HUE 170
 #define ENABLE_RGB_MATRIX_SOLID_REACTIVE_MULTINEXUS
 #define ENABLE_RGB_MATRIX_RAINBOW_MOVING_CHEVRON
