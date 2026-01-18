@@ -15,7 +15,7 @@ VIA_ENABLE = yes
 
 # For bluetooth
 BLUETOOTH_ENABLE = no
-BLUETOOTH_DRIVER = BluefruitLE
+BLUETOOTH_DRIVER = bluefruit_le
 
 # Enable keyboard RGB matrix
 RGB_MATRIX_ENABLE = yes

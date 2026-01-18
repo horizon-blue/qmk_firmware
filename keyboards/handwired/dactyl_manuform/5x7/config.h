@@ -20,20 +20,10 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #include "config_common.h"
 
-#define PRODUCT_ID 0x3537
-#define DEVICE_VER 0x0001
-#define PRODUCT    Dactyl-Manuform (5x7)
-
 /* key matrix size */
 // Rows are doubled-up
 #define MATRIX_ROWS 12
 #define MATRIX_COLS 7
-
-// wiring of each half
-#define MATRIX_ROW_PINS { F0, F1, F4, F5, F6, F7 } 
-#define MATRIX_COL_PINS { B7, D2, D5, D6, D7, B5, C7 }
-
-#define DIODE_DIRECTION COL2ROW
 
 // I2C communication
 #define USE_I2C
@@ -41,10 +31,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define SPLIT_USB_DETECT
 #define SPLIT_USB_TIMEOUT 2500
 
-// additional RGB Matrix config (WS2812)
 // The pin connected to the data pin of the LEDs
-#define RGB_DI_PIN C6
-// The number of LEDs connected
 #define DRIVER_LED_TOTAL 76
 // WS2812 RGB LED strip input and number of LEDs
 
